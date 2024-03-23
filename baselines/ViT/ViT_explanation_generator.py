@@ -26,8 +26,8 @@ class LRP:
         output = self.model(input)
         kwargs = {"alpha": 1}
         if index == None:
-            index = np.argmax(output.cpu().data.numpy(), axis=-1)
-
+            index = np.argmax(output.logits.cpu().data.numpy(), axis=-1)  # Ligne modifiée
+    
         one_hot = np.zeros((1, output.size()[-1]), dtype=np.float32)
         one_hot[0, index] = 1
         one_hot_vector = one_hot

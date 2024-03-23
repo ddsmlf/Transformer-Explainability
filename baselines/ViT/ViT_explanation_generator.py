@@ -41,7 +41,7 @@ class LRP:
         model_attributes = dir(self.model)
         for attr in model_attributes:
             print(attr)
-        return self.model.relprop(torch.tensor(one_hot_vector).to(input.device), method=method, is_ablation=is_ablation,
+        return self.model(torch.tensor(one_hot_vector).to(input.device), method=method, is_ablation=is_ablation,
                                   start_layer=start_layer, **kwargs)
 
 
